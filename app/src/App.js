@@ -18,6 +18,7 @@ export default function App () {
     const renderCount = useRef(1)
     const inputRef = useRef()
     const prevName = useRef('')
+    const buttonRef = useRef()
 
     useEffect( () => {
         renderCount.current = renderCount.current + 1    })
@@ -33,13 +34,19 @@ export default function App () {
     }
 
 
+    function refFocusButton () {
+        buttonRef.current.click()
+    
+    }      
+
     return (
         <div>
             <input  ref = {inputRef} value = {name} onChange = {e => setName(e.target.value)}/>
             <p> Name is : {name} and used to be {prevName.current} </p>
             <div> render count : {renderCount.current} </div>
         
-            <button onClick = {focus}> Focus </button>
+            <button onClick = {focus} ref = {buttonRef}  > Focus </button>
+            <button onClick = {refFocusButton} > Ref to Focus button </button>
         </div>
     
     )
