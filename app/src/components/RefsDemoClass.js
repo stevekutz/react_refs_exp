@@ -10,6 +10,12 @@ class RefsDemoClass extends Component {
     
     }
 
+    submitHandler = () => {
+        
+        // this demonstrte how to capture the textarea value typed in
+        alert(this.textAreaRef.current.value)
+    
+    }
 
 
     componentDidMount () {
@@ -27,7 +33,7 @@ class RefsDemoClass extends Component {
         return (
             <div>    {/* 2) Attach ref to textarea element */}
                 <textarea type = "text"  ref = {this.textAreaRef}   placeholder = "we want focus here on page load"/>
-            
+                <button onClick = {this.submitHandler}>Submit</button>
             </div>
 
 
